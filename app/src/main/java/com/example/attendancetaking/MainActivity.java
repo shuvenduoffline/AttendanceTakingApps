@@ -12,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        //this is for starting new activity after 1.5 sec
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
