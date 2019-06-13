@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //this is for starting new activity after 1.5 sec
+        //this is newtwst
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
