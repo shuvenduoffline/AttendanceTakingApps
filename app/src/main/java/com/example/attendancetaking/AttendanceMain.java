@@ -1,8 +1,10 @@
 package com.example.attendancetaking;
 
 import android.os.Bundle;
+import android.os.RecoverySystem;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,9 +16,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AttendanceMain extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    public RecyclerView recyclerView;
+    public List<Batch> batches;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +45,20 @@ public class AttendanceMain extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        // assign the recyle view
+        recyclerView= findViewById(R.id.rv_select_batch);
+        batches = new ArrayList<>();
+        batches.add(new Batch("B.tech Fist Year",2016,2020,"13255266278"));
+        batches.add(new Batch("B.tech SEcond Year",2015,2019,"13255266278"));
+        batches.add(new Batch("B.tech Fist Year",2016,2020,"13255266278"));
+        batches.add(new Batch("B.tech Fist Year",2016,2020,"13255266278"));
+        batches.add(new Batch("B.tech Fist Year",2016,2020,"13255266278"));
+
+
+        BatchAdapter adapter = new BatchAdapter(getApplicationContext(),batches);
+        recyclerView.setAdapter(adapter);
+
     }
 
     @Override
